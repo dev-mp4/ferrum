@@ -1,2 +1,2 @@
-/target
-cargo.lock
+/build
+compile_commands.json
