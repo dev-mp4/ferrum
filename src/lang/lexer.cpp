@@ -23,7 +23,7 @@ std::ostream& operator<<(std::ostream& os, const Lexer& lexer) {
 	return os;
 }
 
-Lexer::Lexer(std::string code): code(code) {}
+Lexer::Lexer(std::string code): code(code), state(LexerState::LEXER_DEFAULT), lastState(LexerState::LEXER_DEFAULT), buffer(""), tokens() {}
 
 Lexer::~Lexer() {}
 
@@ -57,4 +57,15 @@ void Lexer::tokenize() {
 
 		lastState = state;
 	}
+
+	if (!buffer.empty()) {
+		switch (lastState) {
+			case LexerState::LEXER_NUMBER: tokens.push_back(Token { TokenType::TOKEN_NUMBER, std::stoi(buffer), "" }); break;
+			case LexerState::LEXER_OPERATOR: tokens.push_back(Token { TokenType::TOKEN_OPERATOR, 0, buffer }); break;
+			default: break;
+		}
+
+		buffer = "";
+	}
+
 }

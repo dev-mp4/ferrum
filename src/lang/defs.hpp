@@ -3,6 +3,6 @@
 
 #include <vector>
 
-const std::vector<char> operators = {'+', '-', '*', '/', '=', '<', '>', '%', '^', '&', '|', '!'};
+const std::vector<char> operators = {'+', '-', '*', '/', '=', '<', '>', '%', '^', '&', '|', '!', '~'};
 
 #endif

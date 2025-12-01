@@ -1,3 +1,4 @@
+#include "lang/expr.hpp"
 #include <iostream>
 #include <lang/lexer.hpp>
 #include <sstream>
@@ -30,7 +31,11 @@ int main(int argc, char** argv) {
 
 	lexer.tokenize();
 
-	std::cout << lexer << std::endl;
+	ExprParser parser(lexer.tokens);
+
+    
+
+    std::cout << (parser.parse()) << std::endl;
 
 	return 0;
 }

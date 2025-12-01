@@ -5,7 +5,7 @@
 #include <vector>
 #include <ostream>
 
-enum TokenType {
+enum class TokenType {
 	TOKEN_NUMBER,
 	TOKEN_LITERAL,
 	TOKEN_OPERATOR,
@@ -21,7 +21,7 @@ struct Token {
 	friend std::ostream& operator<<(std::ostream& os, const Token& token);
 };
 
-enum LexerState {
+enum class LexerState {
 	LEXER_DEFAULT,
 	LEXER_NUMBER,
 	LEXER_OPERATOR
